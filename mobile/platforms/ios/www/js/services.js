@@ -4,6 +4,9 @@ angular.module('starter.services', [])
   return $resource("http://localhost:3000/blog_entries/:id.json");
 })
 
+.factory("UserSession", function($resource) {
+  return $resource("http://localhost:3000/users/sign_in.json");
+})
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
