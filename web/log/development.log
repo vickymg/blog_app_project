@@ -2415,3 +2415,36 @@ Processing by BlogEntriesController#index as JSON
   [1m[35mBlogEntry Load (0.4ms)[0m  SELECT "blog_entries".* FROM "blog_entries"
   Rendered blog_entries/index.json.jbuilder (8.7ms)
 Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in.json" for ::1 at 2016-04-15 09:59:17 +0100
+Processing by User::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"vickygray26@hotmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"vickygray26@hotmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "vickygray26@hotmail.com"]]
+Completed 401 Unauthorized in 78ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/users/sign_in.json" for ::1 at 2016-04-15 09:59:23 +0100
+Processing by User::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"vickygray26@hotmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"vickygray26@hotmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "vickygray26@hotmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2016-04-15 08:55:59.937219"], ["current_sign_in_at", "2016-04-15 08:59:23.362500"], ["sign_in_count", 7], ["updated_at", "2016-04-15 08:59:23.363328"], ["id", 2]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "vickygray26@hotmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2016-04-15 08:59:23.362500"], ["current_sign_in_at", "2016-04-15 08:59:23.433770"], ["sign_in_count", 8], ["updated_at", "2016-04-15 08:59:23.434393"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Completed 201 Created in 152ms (Views: 4.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/blog_entries.json" for ::1 at 2016-04-15 09:59:23 +0100
+Processing by BlogEntriesController#index as JSON
+  [1m[36mBlogEntry Load (0.1ms)[0m  [1mSELECT "blog_entries".* FROM "blog_entries"[0m
+  Rendered blog_entries/index.json.jbuilder (1.4ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms)
